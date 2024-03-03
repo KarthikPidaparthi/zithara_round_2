@@ -7,22 +7,6 @@ const pool=require("./db")
 app.use(cors());
 app.use(express.json());
 
-//routes
-
-
-/*//create todo
-
-app.post("/customers", async(req,res)=>{
-    try {
-        const {description}=req.body;
-        const newtodo=await pool.query("INSERT INTO todo (description) VALUES($1) RETURNING * ",[description])
-        res.json(newtodo.rows[0])
-        
-
-    } catch (err) {
-        console.error(err.message)
-    }
-})*/
 
 
 //get all the data
