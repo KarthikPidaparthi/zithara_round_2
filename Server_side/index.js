@@ -7,23 +7,36 @@ const pool=require("./db")
 app.use(cors());
 app.use(express.json());
 
-//routes
 
-
-/*//create todo
-
-app.post("/customers", async(req,res)=>{
+// add data
+app.post("/addData",async(req,res)=>{
     try {
-        const {description}=req.body;
-        const newtodo=await pool.query("INSERT INTO todo (description) VALUES($1) RETURNING * ",[description])
-        res.json(newtodo.rows[0])
+        const {customer_name,age,phone,location}=req.body;
+        //console.log(customer_name)
+        const newdata=await pool.query("INSERT INTO data(customer_name,age,phone,location) VALUES($1,$2,$3,$4) RETURNING *",[customer_name,age,phone,location])
         
-
+        res.json(newdata.rows[0])
+        console.log(newdata)
     } catch (err) {
         console.error(err.message)
     }
-})*/
+})
 
+
+// edit data
+app.put("/editData/:sno",async(req,res)=>{
+    try {
+        const {sno}=req.params;
+        const {customer_name,age,phone,location}=req.body;
+       // console.log(customer_name)
+        const newdata=await pool.query("UPDATE data SET customer_name=$1,age=$2,phone=$3,location=$4 WHERE sno=$5",[customer_name,age,phone,location,sno])
+        
+        res.json(newdata.rows[0])
+        console.log(newdata)
+    } catch (err) {
+        console.error(err.message)
+    }
+})
 
 //get all the data
 app.get("/customers",async(req,res)=>{
@@ -66,6 +79,18 @@ app.get("/customers/time",async(req,res)=>{
     }
 })
 
+
+
+//delete records
+app.delete("/customer/:sno",async(req,res)=>{
+    try {
+        const {sno}=req.params;
+        const delData=await pool.query("DELETE FROM data WHERE sno=$1",[sno]);
+        res.json("data deleted")
+    } catch (err) {
+        console.error(err.message)
+    }
+})
 
 app.listen(5000,()=>{
     console.log("server has started on port 5000")

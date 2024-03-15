@@ -3,7 +3,63 @@
 body {
   background-color: #f6f6f6;
   font-family: 'Arial', sans-serif;
+  
+  
 }
+
+/*for adding records*/
+.addRecords {
+  max-width: 400px;
+  background-color: #fff;
+  padding: 20px;
+  margin: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  
+  
+}
+
+.addRecords label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.addRecords input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.addRecords input:focus {
+  border-color: #4CAF50;
+}
+
+.addRecords button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.addRecords button:hover {
+  background-color: #45a049;
+}
+
+
+
+
+
+/*for home*/
+
+
 
 .app-container {
   max-width: 800px;
@@ -34,6 +90,26 @@ body {
 .data-table {
   margin-bottom: 20px;
 }
+
+.data-table button {
+  padding: 3px 6px;
+  margin: 4px;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.data-table button:hover {
+  background-color: #0056b3;
+}
+
+.data-table button:active {
+  background-color: #004380;
+}
+
 
 .data-table thead {
   background-color: #3498db;
